@@ -32,7 +32,7 @@ public class MapGenerator {
         for(int i=0;i<map.length;i++){
             for(int j=0;j<map[0].length;j++){
                 if(map[i][j]>0){
-                    g.setColor(Color.red);
+                    g.setColor(Color.yellow);
                     g.fillRect(j*brickWidth+80, i*brickHeight+50, brickWidth, brickHeight);
                     
                     g.setStroke(new BasicStroke(3));     //DIVIDE IL RETTANGOLO GRANDE IN 21 BLOCCHETTI

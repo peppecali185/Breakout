@@ -58,11 +58,11 @@ public class GamePlay extends JPanel implements KeyListener,ActionListener{
         g.fillRect(691, 0, 3, 592);
         
         //pannello che si muove
-        g.setColor(Color.green);
+        g.setColor(Color.white);
         g.fillRect(playerX, 550, 100, 8);  //(playerX è la posizione iniziale del giocatore)
         
         //palla
-        g.setColor(Color.yellow);
+        g.setColor(Color.white);
         g.fillOval(ballposX, ballposY, 20, 20);  //inserisce la palla nelle posizioni iniziali x e y prestabilite
        
         g.dispose();
@@ -137,6 +137,7 @@ public class GamePlay extends JPanel implements KeyListener,ActionListener{
                         }
                     }
                 }
+               
             }
             ballposX+=ballXdir;
             ballposY+=ballYdir;
