@@ -6,6 +6,7 @@
 package breakout;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
@@ -27,7 +28,7 @@ public class GamePlay extends JPanel implements KeyListener,ActionListener{
     private int score=0;
     private int totalBricks=21;
     private Timer timer;  //setta il timer della palla (quanto veloce deve muoversi)
-    private int delay=5;
+    private int delay=1;
     private int playerX=310;  //posizione iniziale giocatore
     private int ballposX=120; //posizione iniziale asse X palla
     private int ballposY=250; //posizione iniziale asse Y palla
@@ -57,6 +58,10 @@ public class GamePlay extends JPanel implements KeyListener,ActionListener{
         g.fillRect(0, 0, 692, 3);
         g.fillRect(691, 0, 3, 592);
         
+        //punteggio
+        g.setColor(Color.white);
+        g.drawString("punteggio: "+score,592,30);
+        
         //pannello che si muove
         g.setColor(Color.white);
         g.fillRect(playerX, 550, 100, 8);  //(playerX è la posizione iniziale del giocatore)
@@ -65,6 +70,15 @@ public class GamePlay extends JPanel implements KeyListener,ActionListener{
         g.setColor(Color.white);
         g.fillOval(ballposX, ballposY, 20, 20);  //inserisce la palla nelle posizioni iniziali x e y prestabilite
        
+        
+        //gameover
+        if(ballposY>570){
+            play=false;
+            ballXdir=0;
+            ballYdir=0;
+            g.setColor(Color.red);
+            g.drawString("GAME OVER, il punteggio è di: "+score, 275, 300);
+        }
         g.dispose();
     }
             
