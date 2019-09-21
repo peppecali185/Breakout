@@ -1,0 +1,68 @@
+@startuml
+class Breakout
+class GamePlay
+class MapGenerator
+
+' oggetto di tipo jframe
+Breakout : obj
+' oggetto di tipo GamePlay
+Breakout : gamePlay 
+
+
+' Attributo che indica se il gioco è stato avviato
+GamePlay : play
+' Attributo che indica il punteggio del giocatore
+GamePlay : score
+' Attributo che indica il numero di mattoncini presenti all'avvio del gioco
+GamePlay : totalBricks
+' Attributo contenente il valore della velocità di movimento della pallina
+GamePlay : timer
+' Attributo di tipo int
+GamePlay : delay
+' Attributo che indica la posizione iniziale del giocatore sull'asse X
+GamePlay : playerX
+' Attributo che indica la posizione iniziale della pallina sull'asse X
+GamePlay : ballposX
+' Attributo che indica la posizione iniziale della pallina sull'asse Y
+GamePlay : ballposY
+' Attributo che indica la direzione della palla sull'asse X
+GamePlay : ballXdir
+' Attributo che indica la direzione della palla sull'asse Y
+GamePlay : ballYdir
+' Attributo che permette il disegno dei vari oggetti sul pannello
+GamePlay : map
+' Metodo che permette di disegnare sullo schermo i vari elementi e di impostare colori e sfondo
+GamePlay : paint()
+' Metodo che permette di muovere la barra del giocatore mediante la pressione dei tasti freccia destro e sinistro
+GamePlay : keyPressed()
+' Metodo che permette di aumentare la posizione sull'asse x del valore della posizione del giocatore, facendolo muovere verso destra
+GamePlay : moveRight()
+' Metodo che permette di diminuire la posizione sull'asse x del valore della posizione del giocatore, facendolo muovere verso sinistra
+GamePlay : moveLeft()
+' Metodo che permette di generare i mattoncini e che quando succede una determinata azione, modifica degli attributi (es. se la palla tocca il soffitto, deve tornare giù)
+GamePlay : actionPerformed()
+
+
+' Matrice contenente tutti i mattoncini
+MapGenerator : map
+' Attributo che indica la larghezza di ogni mattoncino
+MapGenerator : brickWidth
+' Attributo che indica l'altezza di ogni mattoncino
+MapGenerator : brickHeight
+' Metodo che permette di disegnare i mattoncini sullo schermo
+MapGenerator : draw()
+' Metodo che permette di settare il numero di righe e colonne di mattoncini, passati come parametro
+MapGenerator : setBrickValue()
+
+
+
+
+
+GamePlay "1" -- "1" MapGenerator 
+
+Breakout "1" o-- "1" GamePlay 
+MapGenerator "1" --o "1" Breakout 
+
+
+
+@enduml
